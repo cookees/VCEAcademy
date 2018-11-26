@@ -8,6 +8,8 @@ import BottomBanner from './Components/BottomBanner/BottomBanner'
 import CourseList from './Components/CourseList/CourseList'
 import GeneralMaths from './Components/GeneralMaths/GeneralMaths'
 import Functions from './Components/Functions/Functions'
+import SubTopicsGrid from './Components/SubtopicsGrid/SubtopicsGrid';
+
 
 class App extends Component {
 
@@ -51,7 +53,7 @@ class App extends Component {
         }
         {this.state.current === 3 ?
           <div>
-            <Functions/>
+            <SubTopicsGrid cards={Functions.subtopics}/>
           </div> : null
         }
         </div>
