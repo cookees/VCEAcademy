@@ -68,13 +68,58 @@ const styles = theme => ({
 
 const cards = [
   {
-    name: 'Quadratics',
+    name: 'Polynomials',
     key:1,
-    icon: 'add'
+    icon: 'calculus'
+  },
+  {
+    name: 'Cubic Functions',
+    key:2,
+    icon: 'calculus'
+  },
+  {
+    name: 'Sine and Cosine',
+    key:3,
+    icon: 'calculus'
+  },
+  {
+    name: 'Tan',
+    key:4,
+    icon: 'calculus'
+  },
+  {
+    name: 'Exponential Functions',
+    key:5,
+    icon: 'calculus'
+  },
+  {
+    name: 'Logarithmic Functions',
+    key:6,
+    icon: 'calculus'
+  },
+  {
+    name: 'Hybrid / Absolute Functions',
+    key:7,
+    icon: 'calculus'
+  },
+  {
+    name: 'Function Addition',
+    key:8,
+    icon: 'calculus'
+  },
+  {
+    name: 'Fraction Power Functions',
+    key:9,
+    icon: 'calculus'
+  },
+  {
+    name: 'Integer Power Functions',
+    key:10,
+    icon: 'calculus'
   },
 ];
 
-export default class GeneralMaths extends React.Component {
+export default class Functions extends React.Component {
 
   constructor(props){
     super(props);
@@ -96,7 +141,9 @@ export default class GeneralMaths extends React.Component {
 
 
         <main>
-
+          <Typography align = 'left' style = {{paddingLeft: '33px', paddingBottom: '8px', paddingTop: '10px'}} component="h3" gutterBottom variant="h6">
+          What do you want to learn in Functions & Graphs?
+          </Typography>
           <div style={{
             backgroundColor: '#fff',
             width: 'auto',

@@ -43,7 +43,10 @@ class CourseList extends React.Component {
           }}>
             <ListItemText primary="General" inset />
           </ListItem>
-          <ListItem style = {{
+          <ListItem
+          button
+          onClick={event => this.props.change(3)}
+          style = {{
             width: window.innerWidth * 0.23,
           }}>
             <ListItemText primary="Functions & Graphs" inset/>
