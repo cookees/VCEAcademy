@@ -5,6 +5,7 @@ import './App.css';
 import HeaderBar from './Components/HeaderBar/HeaderBar'
 import Banner from './Components/Banner/Banner'
 import CourseList from './Components/CourseList/CourseList'
+import GeneralMaths from './Components/GeneralMaths/GeneralMaths'
 
 class App extends Component {
 
@@ -43,7 +44,7 @@ class App extends Component {
         }
         {this.state.current === 2 ?
           <div>
-            <Banner/>
+            <GeneralMaths/>
           </div> : null
         }
         </div>
