@@ -9,6 +9,7 @@ import CourseList from './Components/CourseList/CourseList'
 import GeneralMaths from './Components/GeneralMaths/GeneralMaths'
 import Functions from './Components/Functions/Functions'
 import SubTopicsGrid from './Components/SubtopicsGrid/SubtopicsGrid';
+import Polynomials from './Components/Functions/Polynomials';
 
 
 class App extends Component {
