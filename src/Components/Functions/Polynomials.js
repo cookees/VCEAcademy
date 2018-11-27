@@ -5,7 +5,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
+import FileCopy from '@material-ui/icons/FileCopy';
+import PlayArrow from '@material-ui/icons/PlayArrow';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import Card from '@material-ui/core/Card';
@@ -20,6 +21,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import InboxIcon from '@material-ui/icons/Inbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
 
 const styles = theme => ({
   root: {
@@ -59,16 +63,27 @@ class Polynomials extends React.Component {
           minWidth: window.innerWidth * 0.5,
         }}
       >
-        <Typography style = {{paddingTop: 15, paddingLeft: 10}} align = 'left'>
+        <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
         Introduction to Polynomials
-        </Typography>
-        <Typography style = {{paddingTop: 15, paddingLeft: 10}} align = 'left'>
-        Learn
         </Typography>
 
         <CardContent>
 
-        <Button onClick={this.handleClickOpen} variant="contained">Polynomials Introduction</Button>
+        <List component="nav">
+        <ListItem onClick={this.handleClickOpen} button>
+          <ListItemIcon>
+            <PlayArrow />
+          </ListItemIcon>
+          <ListItemText primary="Polynomials Intro" />
+        </ListItem>
+        <ListItem onClick={this.handleClickOpen} button>
+          <ListItemIcon>
+            <FileCopy />
+          </ListItemIcon>
+          <ListItemText primary="Polynomials Intro" />
+        </ListItem>
+        </List>
+
         <Dialog
           open={this.state.open}
           TransitionComponent={Transition}
