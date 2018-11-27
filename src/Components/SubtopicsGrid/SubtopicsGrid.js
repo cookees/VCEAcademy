@@ -13,6 +13,12 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Polynomials from '../Functions/Polynomials';
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import Banner from '../Banner/Banner';
+import BottomBanner from '../BottomBanner/BottomBanner'
+import HeaderBar from '../HeaderBar/HeaderBar'
+import Cubics from '../Functions/Cubics';
 
 const styles = theme => ({
   appBar: {
@@ -68,24 +74,28 @@ const styles = theme => ({
 });
 
 class SubTopicCard extends Component {
+
     constructor(props) {
       super(props)
       this.onMouseEnter = this.onMouseEnter.bind(this)
       this.onMouseLeave = this.onMouseLeave.bind(this)
-      this.state = {expanded: false }
+      this.state = {
+        expanded: false,
+      }
     }
-  
+
     onMouseEnter = () => {
       this.setState(state => ({expanded: true}))
     }
     onMouseLeave = () => {
       this.setState(state => ({expanded: false}))
     }
-  
+
     render() {
       const {onClick} = this.props
       const {name, icon, extraInfo} = this.props.card
       return (
+
         <Card
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
@@ -102,7 +112,7 @@ class SubTopicCard extends Component {
               image={require('../../images/' + icon + '.png')}
               title="Image title"
             />
-            
+
             <CardContent style={{ flexGrow: 1, }}>
               <Typography gutterBottom variant="h7" component="h4" align="center">
                 {name}
@@ -114,7 +124,10 @@ class SubTopicCard extends Component {
               </Collapse>
             </CardContent>
           </CardActionArea>
-        </Card>)
+        </Card>
+
+
+      )
     }
   }
 
@@ -123,9 +136,16 @@ export default class SubTopicsGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0
+      current: 0,
     }
+    this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
   }
+
+  handleFilterUpdate(filterValue) {
+            this.setState({
+                  current: filterValue
+            });
+      }
 
   goBack = () => {
     this.setState({ current: 0 })
@@ -133,16 +153,44 @@ export default class SubTopicsGrid extends React.Component {
 
   render() {
     return (
+      <Router>
       <React.Fragment>
         <CssBaseline />
+        {this.state.current === 3 ?
+          <div>
+            <div>
+            <Redirect to='/cubics'/>
+            </div>
+            <div>
+            <Route
+              path="/cubics"
+              render={(props) => <Cubics change={this.handleFilterUpdate} />}
+              />
+            </div>
+          </div>: null
+        }
+        {this.state.current === 2 ?
+          <div>
+            <div>
+            <Redirect to='/polynomials'/>
+            </div>
+            <div>
+            <Route
+              path="/polynomials"
+              render={(props) => <Polynomials change={this.handleFilterUpdate} />}
+              />
+            </div>
+          </div>: null
+        }
         {this.state.current === 0 ?
           <div style={{ backgroundColor: '#fff' }}>
 
-
-            <main>
+              <main>
+              <HeaderBar/>
+              <Banner/>
               <Typography align='left' style={{ paddingLeft: '33px', paddingBottom: '8px', paddingTop: '10px' }} component="h5" gutterBottom variant="h5">
-                What do you want to learn in Functions & Graphs?
-          </Typography>
+                What do you want to learn in {this.props.name}?
+              </Typography>
               <div style={{
                 backgroundColor: '#fff',
                 width: 'auto',
@@ -156,18 +204,21 @@ export default class SubTopicsGrid extends React.Component {
                     <Grid item key={card} sm={6} md={4} lg={2}>
                       <SubTopicCard
                         card={card}
-                        onClick={() => {this.setState({ current: card.key })}}
+                        onClick={() => {this.setState({
+                          current: card.key,
+                        })}}
                       />
 
                     </Grid>
                   ))}
                 </Grid>
               </div>
+              <BottomBanner/>
             </main>
           </div> : null
         }
       </React.Fragment>
+      </Router>
     );
   }
 }
-

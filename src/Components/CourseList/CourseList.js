@@ -9,6 +9,9 @@ import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import Divider from '@material-ui/core/Divider';
+import Banner from '../Banner/Banner';
+import BottomBanner from '../BottomBanner/BottomBanner'
+import HeaderBar from '../HeaderBar/HeaderBar'
 
 const styles = theme => ({
   root: {
@@ -24,7 +27,11 @@ class CourseList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
+      <div>
+      <HeaderBar/>
+      <Banner/>
       <div className={classes.root}>
+
         <List disablePadding dense>
           <div style={{ marginLeft: window.innerWidth * 0.06, display: 'flex', flexDirection: 'row', paddingTop: 12, paddingBottom: 12 }}>
             <ListItem style={{
@@ -189,6 +196,8 @@ class CourseList extends React.Component {
 
         </List>
       </div>
+      <BottomBanner/>
+    </div>
     );
   }
 }

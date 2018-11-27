@@ -10,6 +10,7 @@ import GeneralMaths from './Components/GeneralMaths/GeneralMaths'
 import Functions from './Components/Functions/Functions'
 import SubTopicsGrid from './Components/SubtopicsGrid/SubtopicsGrid';
 import Polynomials from './Components/Functions/Polynomials';
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 
 class App extends Component {
@@ -39,9 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Polynomials/>
-        <HeaderBar/>
-        <Banner/>
+
         <div ref={this.myRef}>
         {this.state.current === 1 ?
           <div>
@@ -50,17 +49,15 @@ class App extends Component {
         }
         {this.state.current === 2 ?
           <div>
-            <GeneralMaths/>
+            <SubTopicsGrid cards={GeneralMaths.subtopics} name={GeneralMaths.name} />
           </div> : null
         }
         {this.state.current === 3 ?
           <div>
-            <SubTopicsGrid cards={Functions.subtopics}/>
+            <SubTopicsGrid cards={Functions.subtopics} name={Functions.name}/>
           </div> : null
         }
         </div>
-        <BottomBanner/>
-
       </div>
     );
   }

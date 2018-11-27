@@ -49,7 +49,7 @@ function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
 
-class Polynomials extends React.Component {
+class Cubics extends React.Component {
 
   constructor(props) {
     super(props);
@@ -159,7 +159,7 @@ class Polynomials extends React.Component {
         }}
       >
         <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
-        Introduction to Polynomials
+        Introduction to Cubics
         </Typography>
 
         <CardContent>
@@ -362,8 +362,8 @@ class Polynomials extends React.Component {
   }
 }
 
-Polynomials.propTypes = {
+Cubics.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Polynomials);
+export default withStyles(styles)(Cubics);

@@ -9,6 +9,7 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 const styles = theme => ({
   root: {
@@ -18,11 +19,25 @@ const styles = theme => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginLeft: -12,
+    marginLeft: window.innerWidth*0.12,
     marginRight: 20,
   },
   title: {
     paddingLeft: window.innerWidth*0.43,
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+  backtitle: {
+    paddingLeft: - window.innerWidth*0.05,
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+  titles: {
+    marginLeft: window.innerWidth*0.24,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
@@ -70,32 +85,53 @@ const styles = theme => ({
   },
 });
 
-function HeaderBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" color="#fff">
-        <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            VCE Academy
-          </Typography>
-          <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+class HeaderBar extends React.Component {
+  render(){
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" color="#fff">
+          <Toolbar>
+            {this.props.back === 1 ?
+              <IconButton className={classes.menuButton} color="inherit" aria-label="Menu"
+              onClick={() => {this.props.changing(0)}}
+              >
+              <ArrowBack />
+              </IconButton> : null
+            }
+            {this.props.back === 1 ?
+              <Typography className={classes.backtitle} variant="subtitle1" noWrap>
+                Back
+              </Typography> : null
+            }
+            {this.props.back === 1 ?
+              <Typography className={classes.titles} variant="h6" noWrap>
+                VCE Academy
+              </Typography> : null
+            }
+            {this.props.back !== 1 ?
+              <Typography className={classes.title} variant="h6" noWrap>
+                VCE Academy
+              </Typography>:null
+            }
+            <div className={classes.grow} />
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+              />
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-            />
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 HeaderBar.propTypes = {
