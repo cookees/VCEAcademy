@@ -11,6 +11,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import HeaderBar from '../HeaderBar/HeaderBar'
 import Typography from '@material-ui/core/Typography';
@@ -24,13 +25,22 @@ import Slide from '@material-ui/core/Slide';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
+import YouTube from 'react-youtube';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 
 const styles = theme => ({
   root: {
     paddingTop: 25,
     display: 'flex',
-    marginLeft: window.innerWidth * 0.42,
+    marginLeft: window.innerWidth * 0.19,
     paddingBottom: 25,
+  },
+  paper: {
+    marginRight: theme.spacing.unit * 2,
+    minWidth: window.innerWidth * 0.15
   },
 });
 
@@ -42,6 +52,7 @@ class Polynomials extends React.Component {
 
   state = {
     open: false,
+    openvideo: false,
   };
 
   handleClickOpen = () => {
@@ -52,12 +63,42 @@ class Polynomials extends React.Component {
     this.setState({ open: false });
   };
 
+  handleClickOpenVideo = () => {
+    this.setState({ openvideo: true });
+  };
+
+  handleCloseVideo = () => {
+    this.setState({ openvideo: false });
+  };
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
+
   render(){
+    const opts = {
+      height: '370',
+
+      width: window.innerWidth * 0.50,
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
     const { classes } = this.props;
     return (
       <div>
       <HeaderBar/>
       <div className={classes.root}>
+      <Card className={classes.paper}>
+          <Typography style = {{paddingTop: 21, paddingLeft: 15}} variant ='subheading' align = 'left'>
+          Functions & Graphs
+          </Typography>
+          <MenuList>
+            <MenuItem>Profile</MenuItem>
+            <MenuItem>My account</MenuItem>
+            <MenuItem>Logout</MenuItem>
+          </MenuList>
+        </Card>
       <Card
         style={{
           minWidth: window.innerWidth * 0.5,
@@ -70,7 +111,7 @@ class Polynomials extends React.Component {
         <CardContent>
 
         <List component="nav">
-        <ListItem onClick={this.handleClickOpen} button>
+        <ListItem onClick={this.handleClickOpenVideo} button>
           <ListItemIcon>
             <PlayArrow />
           </ListItemIcon>
@@ -83,6 +124,37 @@ class Polynomials extends React.Component {
           <ListItemText primary="Polynomials Intro" />
         </ListItem>
         </List>
+
+        <Dialog
+          open={this.state.openvideo}
+          TransitionComponent={Transition}
+          keepMounted
+          fullWidth={true}
+          maxWidth = {'md'}
+          onClose={this.handleCloseVideo}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
+            {"What are Polynomials?"}
+          </DialogTitle>
+          <DialogContent style = {{textAlign: "center"}}>
+            <YouTube
+              videoId="88hGRndkeC0"
+              opts={opts}
+              //onReady={this._onReady}
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleCloseVideo} color="primary">
+              Close
+            </Button>
+            <Button onClick={this.handleCloseVideo} color="primary">
+              Next Article
+            </Button>
+          </DialogActions>
+        </Dialog>
+
 
         <Dialog
           open={this.state.open}
