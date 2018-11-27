@@ -39,6 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Polynomials/>
         <HeaderBar/>
         <Banner/>
         <div ref={this.myRef}>
