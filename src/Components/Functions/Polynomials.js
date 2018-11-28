@@ -87,6 +87,10 @@ class Polynomials extends React.Component {
     //event.target.pauseVideo();
   }
 
+  componentWillUnmount(){
+    this.props.change(0)
+  }
+
   render(){
     const opts = {
       height: '370',

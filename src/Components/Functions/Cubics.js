@@ -86,6 +86,10 @@ class Cubics extends React.Component {
     })
     //event.target.pauseVideo();
   }
+  componentWillUnmount(){
+    this.props.change(0)
+  }
+
 
   render(){
     const opts = {

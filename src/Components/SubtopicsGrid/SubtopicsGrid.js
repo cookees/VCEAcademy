@@ -159,7 +159,7 @@ export default class SubTopicsGrid extends React.Component {
         {this.state.current === 3 ?
           <div>
             <div>
-            <Redirect to='/cubics'/>
+                  <Redirect push to="/cubics"></Redirect>
             </div>
             <div>
             <Route
@@ -172,7 +172,7 @@ export default class SubTopicsGrid extends React.Component {
         {this.state.current === 2 ?
           <div>
             <div>
-            <Redirect to='/polynomials'/>
+                  <Redirect push to="/polynomials"></Redirect>
             </div>
             <div>
             <Route
@@ -215,6 +215,10 @@ export default class SubTopicsGrid extends React.Component {
               </div>
               <BottomBanner/>
             </main>
+            <Route
+              path="/polynomials"
+              render={(props) => <Polynomials change={this.handleFilterUpdate} />}
+              />
           </div> : null
         }
       </React.Fragment>
