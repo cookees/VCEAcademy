@@ -57,10 +57,11 @@ class Polynomials extends React.Component {
       open: false,
       openvideo: false,
       events: null,
+      menu: 0,
+      check: false,
     };
     this._onReady = this._onReady.bind(this)
   }
-
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -78,6 +79,12 @@ class Polynomials extends React.Component {
     this.setState({ openvideo: false });
     this.state.events.target.pauseVideo();
   };
+
+  goNext = () => {
+    this.setState({ openvideo: false });
+    this.state.events.target.pauseVideo();
+    this.setState({ open: true });
+  }
   _onReady(event) {
     // access to player in all event handlers via event.target
 
@@ -88,7 +95,16 @@ class Polynomials extends React.Component {
   }
 
   componentWillUnmount(){
-    this.props.change(0)
+
+    if (this.state.menu === 0){
+      this.props.change(0)
+    }
+  }
+
+  async navigate(number){
+    await this.setState({ menu: number });
+    await this.setState({ check: true });
+    this.props.change(number)
   }
 
   render(){
@@ -103,10 +119,10 @@ class Polynomials extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-      <HeaderBar back={1} title ={'Functions & Graphs'} changing={this.props.change}/>
+      <HeaderBar back={1} title ={'Functions & Graphs'} changing={this.props.change} moved={this.handleFilterUpdate}/>
       <div className={classes.root}>
       <Card className={classes.paper}>
-          <Typography style = {{paddingTop: 21, paddingLeft: 15}} variant ='subheading' align = 'left'>
+          <Typography style = {{paddingTop: 21, paddingLeft: 15}} variant ='subheading' component="h4" align = 'left'>
           Functions & Graphs
           </Typography>
           <MenuList>
@@ -115,7 +131,7 @@ class Polynomials extends React.Component {
               Polynomials Introduction
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.props.change(3)}}>
+            <MenuItem onClick={() => {this.navigate(3)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
               General Cubic Function
               </Typography>
@@ -127,7 +143,7 @@ class Polynomials extends React.Component {
             </MenuItem>
             <MenuItem>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              Tan
+              Tangent
               </Typography>
             </MenuItem>
             <MenuItem>
@@ -207,7 +223,7 @@ class Polynomials extends React.Component {
             <Button onClick={this.handleCloseVideo} color="primary">
               Close
             </Button>
-            <Button onClick={this.handleCloseVideo} color="primary">
+            <Button onClick={this.goNext} color="primary">
               Next Article
             </Button>
           </DialogActions>
@@ -352,7 +368,7 @@ class Polynomials extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Close
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} disabled color="primary">
               Next Article
             </Button>
           </DialogActions>

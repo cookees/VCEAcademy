@@ -11,7 +11,9 @@ function Banner(props) {
       style={{
         width: window.innerWidth,
         height: window.innerHeight * 0.70,
+        margin: 0
       }}
+
       />
     </div>
   );

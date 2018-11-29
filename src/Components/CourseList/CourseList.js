@@ -12,6 +12,8 @@ import Divider from '@material-ui/core/Divider';
 import Banner from '../Banner/Banner';
 import BottomBanner from '../BottomBanner/BottomBanner'
 import HeaderBar from '../HeaderBar/HeaderBar'
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   root: {
@@ -31,7 +33,6 @@ class CourseList extends React.Component {
       <HeaderBar/>
       <Banner/>
       <div className={classes.root}>
-
         <List disablePadding dense>
           <div style={{ marginLeft: window.innerWidth * 0.06, display: 'flex', flexDirection: 'row', paddingTop: 12, paddingBottom: 12 }}>
             <ListItem style={{

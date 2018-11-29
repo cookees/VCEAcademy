@@ -57,10 +57,12 @@ class Cubics extends React.Component {
       open: false,
       openvideo: false,
       events: null,
+      menu: 0,
+      check: false,
+      openAgain: false,
     };
     this._onReady = this._onReady.bind(this)
   }
-
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -68,6 +70,14 @@ class Cubics extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+  };
+
+  handleCloseAgain = () => {
+    this.setState({ openAgain: false });
+  };
+
+  handleClickOpenAgain = () => {
+    this.setState({ openAgain: true });
   };
 
   handleClickOpenVideo = () => {
@@ -78,6 +88,17 @@ class Cubics extends React.Component {
     this.setState({ openvideo: false });
     this.state.events.target.pauseVideo();
   };
+
+  handleCloseMore = () => {
+    this.setState({ open: false });
+    this.setState({ openAgain: true });
+  }
+
+  goNext = () => {
+    this.setState({ openvideo: false });
+    this.state.events.target.pauseVideo();
+    this.setState({ open: true });
+  }
   _onReady(event) {
     // access to player in all event handlers via event.target
 
@@ -86,10 +107,19 @@ class Cubics extends React.Component {
     })
     //event.target.pauseVideo();
   }
+
   componentWillUnmount(){
-    this.props.change(0)
+
+    if (this.state.menu === 0){
+      this.props.change(0)
+    }
   }
 
+  async navigate(number){
+    await this.setState({ menu: number });
+    await this.setState({ check: true });
+    this.props.change(number)
+  }
 
   render(){
     const opts = {
@@ -103,14 +133,14 @@ class Cubics extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-      <HeaderBar back={1} title ={'Functions & Graphs'} changing={this.props.change}/>
+      <HeaderBar back={1} title ={'Functions & Graphs'} changing={this.props.change} moved={this.handleFilterUpdate}/>
       <div className={classes.root}>
       <Card className={classes.paper}>
-          <Typography style = {{paddingTop: 21, paddingLeft: 15}} variant ='subheading' align = 'left'>
+          <Typography style = {{paddingTop: 21, paddingLeft: 15}} variant ='subheading' component="h4" align = 'left'>
           Functions & Graphs
           </Typography>
           <MenuList>
-            <MenuItem onClick={() => {this.props.change(2)}}>
+            <MenuItem onClick={() => {this.navigate(2)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
               Polynomials Introduction
               </Typography>
@@ -127,7 +157,7 @@ class Cubics extends React.Component {
             </MenuItem>
             <MenuItem>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              Tan
+              Tangent
               </Typography>
             </MenuItem>
             <MenuItem>
@@ -163,7 +193,7 @@ class Cubics extends React.Component {
         }}
       >
         <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
-        Introduction to Cubics
+        General Cubic Function
         </Typography>
 
         <CardContent>
@@ -173,13 +203,19 @@ class Cubics extends React.Component {
           <ListItemIcon>
             <PlayArrow />
           </ListItemIcon>
-          <ListItemText primary="Polynomials Intro" />
+          <ListItemText primary="General Cubic Function" />
         </ListItem>
         <ListItem onClick={this.handleClickOpen} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="Polynomials Intro" />
+          <ListItemText primary="General Cubic Function" />
+        </ListItem>
+        <ListItem onClick={this.handleClickOpenAgain} button>
+          <ListItemIcon>
+            <FileCopy />
+          </ListItemIcon>
+          <ListItemText primary="Sign Diagram" />
         </ListItem>
         </List>
 
@@ -198,7 +234,7 @@ class Cubics extends React.Component {
           </DialogTitle>
           <DialogContent style = {{textAlign: "center"}}>
             <YouTube
-              videoId="88hGRndkeC0"
+              videoId="rcDJRBIy_ik"
               opts={opts}
               onReady={this._onReady}
             />
@@ -207,7 +243,7 @@ class Cubics extends React.Component {
             <Button onClick={this.handleCloseVideo} color="primary">
               Close
             </Button>
-            <Button onClick={this.handleCloseVideo} color="primary">
+            <Button onClick={this.goNext} color="primary">
               Next Article
             </Button>
           </DialogActions>
@@ -225,73 +261,26 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"What are Polynomials?"}
+            {"General Cubic Function"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-            <Typography variant="subtitle1" gutterBottom>
-            A polynomial is any combination of power functions where n is equal to a positive integer or zero.
+
+            <Typography variant="h6" >
+            General Cubic Function<br/><br/>
             </Typography>
-            <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=y%3Da_%7B0%7D%2Ba_%7B1%7Dx%2Ba_%7B2%7D%2Bx%5E%7B2%7D%2B.......%2Ba_%7Bn%7Dx%5E%7Bn%7D&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-            <Typography variant="h6" >
-            Polynomial Types<br/><br/>
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-            - A degree one polynomial is where there is x to the power of one plus any real number, a linear function<br/>
-            - A degree two polynomial is the same a quadratic function<br/>
-            - A degree three polynomial is called a cubic.<br/>
-            </Typography>
-            <br/>
-            <Typography variant="h6" >
-            Turning and Inflection Points<br/><br/>
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-            When a function has an even amount of turning points at the same point, we have a point of inflection in our graph.<br/><br/>
-
-            A point of inflection is characterised by a gradient which approaches zero and is 0 at its point, just like a turning point. However unlike the turning point it then continues in the same direction instead of reversing.
-            <br/>
-            </Typography>
-            <br/>
-            <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcpoly1-300x300.jpg"
-            alt="new"
-            />
-            <br/><br/>
-            <Typography variant="subtitle1" gutterBottom>
-            For the blue cubic function there is a point of inflection at (-2,0), since both the turning points are located at the same point. Note how the function flattens out and then continues in the same direction. A cubic function is also able to have two turning points at different co-ordinates instead of a point of inflection.
-            <br/><br/>
-            For the red quadratic function, the turning point we can see at (2,0). Note how the function flattens out and then reverses direction.
-            <br/>
-            </Typography>
-            <br/>
-            <Typography variant="h6" >
-            Turning Point Form<br/><br/>
-            </Typography>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Sometimes a polynomial equation may appear in a form similar to the turning point form of a quadratic, but its not possible to display all polynomials in this form unlike a quadratic:            <br/><br/>
-            For the red quadratic function, the turning point we can see at (2,0). Note how the function flattens out and then reverses direction.
-            <br/>
-            </Typography>
-            <br/>
-            <img
-            src="http://s0.wp.com/latex.php?latex=y%3Da%28x%2Bh%29%5E%7Bn%7D%2Bk&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=y%3Dax%5E%7B3%7D%2Bbx%5E%7B2%7D%2Bcx%2Bd&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            This form lets us know where the turning point or the point of inflection is straight away.
+            In this form the y intercept is easy to find since if we set x=0, y =d.
             <br/><br/>
-            If n is a positive odd integer greater or equal to 3 then we know that it will be a point of inflection at (-h,k). In this form all the turning points are located in the one spot.
+            To calculate the x intercepts is much more difficult. Since we know that a cubic will always end up heading in the direction that it starts in, either through a point of inflection or two turning points, we know there will be at least one x intercept. The easiest way to find the intercepts is through substitution.
             <br/><br/>
-            If n is a positive even integer greater or equal to 2 then we know that it will be a turning point at (-h,k). This is the same form as our turning point form for quadratics.
-            <br/><br/>
-            To draw the rest of the graph we go through the same process as the quadratic of setting x to zero to calculate the y intercept and then y to zero to calculate the x intercept.
+            The turning points can only be found through use of differentiation or using a calculator.
             </Typography>
             <br/>
 
@@ -299,50 +288,87 @@ class Cubics extends React.Component {
             Example<br/><br/>
             </Typography>
 
-            <Typography variant="subtitle1" gutterBottom>
-            For example if we were required to sketch:<br/><br/>
-            </Typography>
-
             <img
-            src="http://s0.wp.com/latex.php?latex=y%3D2%28x%2B1%29%5E%7B3%7D%2B2&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Step 1: Locate the point of Inflection
-            <br/><br/>
-            As the function is in turning point form and to the power of an odd number the x co-ordinate of the point of inflection is easy to find. In this case it is (-1,2).
-            <br/><br/>
-            Step 2: Find the y intercept, by setting x to zero
-            </Typography>
-            <br/>
-            <img
-            src="http://s0.wp.com/latex.php?latex=y%3D2%280%2B1%29%5E%7B3%7D%2B2%5Cnewline+%3D4&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Step 3: Find the x intercept by setting y to zero
+            Step 1: Find y-intercept, let x=0
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=y%3D2%28x%2B1%29%5E%7B3%7D%2B2%3D0%5Cnewline+2%28x%2B1%29%5E%7B3%7D%3D-2%5Cnewline+x%2B1%3D%5Csqrt%5B3%5D%7B%5Cfrac%7B-2%7D%7B2%7D%7D%5Cnewline+x%3D%5Csqrt%5B3%5D%7B-1%7D-1%3D-2&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%280%29%3D-%280%29%5E%7B3%7D%2B19%280%29-30%3D-30&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Step 4: Connect the dots in a polynomial shape like so:
+            Step 2: Find x intercept, let y=0
             <br/><br/>
             </Typography>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcpoly2-300x300.jpg"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30%3D0&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Receiving a polynomial in turning point form is easiest to sketch as it will always be either the S shape of the cubic above when is an odd number or the U shape when n is an even number. However, since not all polynomials can be put in this form, they are not all this easy to sketch.
+            The easiest way is to factorise the equation is to start substituting in values of x and seeing if the equation equals zero.
+            <br/><br/>
+            Let’s try x=1
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%281%29%3D-1%5E%7B3%7D%2B19%5Ctimes+1-30%3D-12&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Since the function does not equal zero then we know that one is not a factor so we try another number.
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%282%29%3D-2%5E%7B3%7D%2B19%5Ctimes+2-30%3D0&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Therefore two is a factor of the function. If we take out x minus two from the function then we get
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%5E%7B2%7D-2x%2B15%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            We can then use either the quadratic formula or continue to guess and check other factors.
+            <br/><br/>
+            Let’s try 3 given it is a factor of 15
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%283%29%3D-3%5E%7B3%7D%2B19%5Ctimes+3-30%5Cnewline+%3D+-27%2B57-30%3D0&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Then we can take out (x-3) from the equation
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%2B3%29%28x%2B5%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Therefore the x-intercepts are 2,3 and -5
             <br/><br/>
             </Typography>
 
@@ -352,7 +378,135 @@ class Cubics extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Close
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleCloseMore} color="primary">
+              Next Article
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+
+        <Dialog
+          open={this.state.openAgain}
+          TransitionComponent={Transition}
+          keepMounted
+          fullWidth={true}
+          maxWidth = {'md'}
+          onClose={this.handleCloseAgain}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
+            {"Sign Diagram"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+
+            <Typography variant="h6" >
+            Determine the Shape<br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            A sign diagram gives a general idea of the shape of a cubic by telling us where the function is positive or negative.
+            <br/><br/>
+            We start by substituting in points between the x intercepts
+            </Typography>
+            <br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%28%5Cfrac%7B5%7D%7B2%7D%29%3D-%28%5Cfrac%7B5%7D%7B2%7D%29%5E%7B3%7D%2B19%28%5Cfrac%7B5%7D%7B2%7D%29-30+%5Cnewline+%5Cnewline+%3D+-%5Cfrac%7B125%7D%7B8%7D%2B%5Cfrac%7B95%7D%7B2%7D-30%3D%5Cfrac%7B15%7D%7B8%7D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            This tells us the function will be positive for 2>x>3.
+            <br/><br/>
+            We already know a point between -5 and 2, the y intercept, which is negative 30. Therefore we know that the function will be negative between these two points.
+            <br/><br/>
+            Now we just need to work out whether the function is positive or negative before and after the x intercepts.
+            </Typography>
+            <br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%28-6%29%3D-%28-6%29%5E%7B3%7D%2B19%28-6%29-30+%5Cnewline+%3D+216-114-30%3D72&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%284%29%3D-%284%29%5E%7B3%7D%2B19%284%29-30+%5Cnewline+%3D+-64%2B76-30%3D-18&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Therefore it is positive when x&lt;-5 and negative for x&gt;4
+            <br/><br/>
+            Now we can can draw the sign diagram to get an idea of the shape
+            </Typography>
+            <br/>
+
+            <img
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcsigndiagram.jpg"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="h6" gutterBottom>
+            Find the local Minimum and Maximums
+            <br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            They can be found through the use of the min and max functions on your calculators or through power differentiation shown below
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%27%28x%29%3D-3%5Ctimes+x%5E%7B3-1%7D%2B19%5Cnewline+%3D-3x%5E%7B2%7D%2B19&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Find the turning points by setting f'(x)=0 and solve for x
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=-3x%5E%7B2%7D%2B19%3D0%5Cnewline+x%3D%5Cpm%5Csqrt%7B%5Cfrac%7B19%7D%7B3%7D%7D%5Cnewline%3D%5Cpm2.52&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Find the y co-ordinates by substituting in the x values above into the original equation
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%282.52%29%3D-2%5E%7B2.52%7D%2B19%5Ctimes+2.52-30%3D1.88&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%28-2.52%29%3D-2%5E%7B-2.52%7D%2B19%5Ctimes+-2.52-30%3D-61.88&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Therefore the turning points are (2.52,1.88) and (-2.52,-61.88)
+            <br/><br/>
+            So the graph can be sketched below:
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcgencubic1-300x300.jpg"
+            alt="new"
+            /><br/><br/>
+
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleCloseAgain} color="primary">
+              Close
+            </Button>
+            <Button onClick={this.handleClose} disabled color="primary">
               Next Article
             </Button>
           </DialogActions>

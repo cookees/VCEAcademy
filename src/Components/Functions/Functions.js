@@ -20,7 +20,7 @@ export default {
       extraInfo: 'Calculus is the study of how lines move differentiation/integration'
     },
     {
-      name: 'Tan',
+      name: 'Tangent',
       key: 5,
       icon: 'calculus',
       extraInfo: 'Calculus is the study of how lines move differentiation/integration'

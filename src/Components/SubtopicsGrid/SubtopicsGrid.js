@@ -19,6 +19,8 @@ import Banner from '../Banner/Banner';
 import BottomBanner from '../BottomBanner/BottomBanner'
 import HeaderBar from '../HeaderBar/HeaderBar'
 import Cubics from '../Functions/Cubics';
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import IconButton from '@material-ui/core/IconButton';
 
 const styles = theme => ({
   appBar: {
@@ -95,6 +97,7 @@ class SubTopicCard extends Component {
       const {onClick} = this.props
       const {name, icon, extraInfo} = this.props.card
       return (
+        <div>
 
         <Card
         onMouseEnter={this.onMouseEnter}
@@ -108,24 +111,19 @@ class SubTopicCard extends Component {
         }}>
           <CardActionArea>
             <CardMedia
-              style={{ paddingTop: '67%' }}
+              style={{ paddingTop: '65%' }}
               image={require('../../images/' + icon + '.png')}
               title="Image title"
             />
 
-            <CardContent style={{ flexGrow: 1, }}>
-              <Typography gutterBottom variant="h7" component="h4" align="center">
+            <CardContent style={{ flexGrow: 1, height: window.innerHeight * 0.1,}}>
+              <Typography color='#000000' gutterBottom variant="subtitle2" component="h4" align="center">
                 {name}
               </Typography>
-              <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-                <div style={{padding:'16px 5px'}}>
-                  {extraInfo}
-                </div>
-              </Collapse>
             </CardContent>
           </CardActionArea>
         </Card>
-
+      </div>
 
       )
     }
@@ -138,20 +136,37 @@ export default class SubTopicsGrid extends React.Component {
     this.state = {
       current: 0,
     }
+    this.myRef = React.createRef();
+    this.scrollToMyRef = this.scrollToMyRef.bind(this);
     this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
   }
 
-  handleFilterUpdate(filterValue) {
-            this.setState({
+  async handleFilterUpdate(filterValue) {
+            await this.setState({
                   current: filterValue
             });
+            if (this.state.current === 0){
+              this.scrollToMyRef()
+            }
       }
 
   goBack = () => {
     this.setState({ current: 0 })
   }
 
+  async componentDidMount(){
+    this.scrollToMyRef()
+
+  }
+  scrollToMyRef = () => {
+    window.scrollTo({
+        top:this.myRef.current.offsetTop,
+        behavior: "smooth"
+    })
+}
+
   render() {
+
     return (
       <Router>
       <React.Fragment>
@@ -159,11 +174,11 @@ export default class SubTopicsGrid extends React.Component {
         {this.state.current === 3 ?
           <div>
             <div>
-                  <Redirect push to="/cubics"></Redirect>
+                  <Redirect push to="/functions"></Redirect>
             </div>
             <div>
             <Route
-              path="/cubics"
+              path="/functions"
               render={(props) => <Cubics change={this.handleFilterUpdate} />}
               />
             </div>
@@ -172,11 +187,11 @@ export default class SubTopicsGrid extends React.Component {
         {this.state.current === 2 ?
           <div>
             <div>
-                  <Redirect push to="/polynomials"></Redirect>
+                  <Redirect push to="/functions"></Redirect>
             </div>
             <div>
             <Route
-              path="/polynomials"
+              path="/functions"
               render={(props) => <Polynomials change={this.handleFilterUpdate} />}
               />
             </div>
@@ -188,7 +203,21 @@ export default class SubTopicsGrid extends React.Component {
               <main>
               <HeaderBar/>
               <Banner/>
-              <Typography align='left' style={{ paddingLeft: '33px', paddingBottom: '8px', paddingTop: '10px' }} component="h5" gutterBottom variant="h5">
+              <div ref={this.myRef}>
+              </div>
+              <Toolbar style = {{backgroundColor: '#f6f6f6', marginTop: '0'}}>
+                <div style = {{flexDirection: 'row', display: 'flex'}}>
+                <IconButton color="inherit" aria-label="Menu"
+                onClick={() => {this.props.change(1)}}
+                >
+                <ArrowBack />
+                </IconButton>
+                <Typography style={{paddingTop: '11px' }} align='left' variant="subtitle1" gutterBottom>
+                  Main Menu
+                </Typography>
+                </div>
+              </Toolbar>
+              <Typography align='left' style={{ paddingLeft: '38px', paddingBottom: '4px', paddingTop: '12px' }} component="h5" gutterBottom variant="h6">
                 What do you want to learn in {this.props.name}?
               </Typography>
               <div style={{
@@ -202,23 +231,19 @@ export default class SubTopicsGrid extends React.Component {
                 <Grid container spacing={40}>
                   {this.props.cards.map((card) => (
                     <Grid item key={card} sm={6} md={4} lg={2}>
+
                       <SubTopicCard
                         card={card}
                         onClick={() => {this.setState({
                           current: card.key,
                         })}}
                       />
-
                     </Grid>
                   ))}
                 </Grid>
               </div>
               <BottomBanner/>
             </main>
-            <Route
-              path="/polynomials"
-              render={(props) => <Polynomials change={this.handleFilterUpdate} />}
-              />
           </div> : null
         }
       </React.Fragment>

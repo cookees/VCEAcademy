@@ -11,7 +11,8 @@ import Functions from './Components/Functions/Functions'
 import SubTopicsGrid from './Components/SubtopicsGrid/SubtopicsGrid';
 import Polynomials from './Components/Functions/Polynomials';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import IconButton from '@material-ui/core/IconButton';
 
 class App extends Component {
 
@@ -19,29 +20,22 @@ class App extends Component {
     super(props);
     this.myRef = React.createRef();
     this.state = {
-      current: 1
+      current: 1,
     }
-    this.scrollToContent = this.scrollToContent.bind(this);
     this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
   }
 
   handleFilterUpdate(filterValue) {
             this.setState({
-                  current: filterValue
+                  current: filterValue,
             });
-            this.scrollToContent()
       }
-
-  scrollToContent() {
-    this.myRef.current.scrollIntoView({behavior: 'smooth'});
-  }
-
 
   render() {
     return (
       <div className="App">
 
-        <div ref={this.myRef}>
+        <div>
         {this.state.current === 1 ?
           <div>
             <CourseList change={this.handleFilterUpdate}/>
@@ -49,12 +43,12 @@ class App extends Component {
         }
         {this.state.current === 2 ?
           <div>
-            <SubTopicsGrid cards={GeneralMaths.subtopics} name={GeneralMaths.name} />
+            <SubTopicsGrid cards={GeneralMaths.subtopics} name={GeneralMaths.name} change={this.handleFilterUpdate} go={1} />
           </div> : null
         }
         {this.state.current === 3 ?
           <div>
-            <SubTopicsGrid cards={Functions.subtopics} name={Functions.name}/>
+            <SubTopicsGrid cards={Functions.subtopics} name={Functions.name} change={this.handleFilterUpdate} go={1}/>
           </div> : null
         }
         </div>
