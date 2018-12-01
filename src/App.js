@@ -33,6 +33,10 @@ class App extends Component {
     this.handleFilterUpdate = this.handleFilterUpdate.bind(this);
   }
 
+  componentWillMount() {
+    document.title = 'VCE Academy'
+  }
+
   handleFilterUpdate(filterValue) {
             this.setState({
                   current: filterValue,
