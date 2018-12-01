@@ -20,6 +20,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
 
 
 const styles = theme => ({
@@ -142,7 +143,7 @@ class CourseList extends React.Component {
               width: window.innerWidth * 0.21,
             }}>
               <Avatar src="https://cdn.kastatic.org/genfiles/topic-icons/icons/arithmetic.png-af7472-128c.png" />
-              <ListItemText primary="Maths Methods" />
+              <ListItemText primary=<div><Typography>Maths Methods</Typography></div> />
             </ListItem>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -204,7 +205,7 @@ class CourseList extends React.Component {
               width: window.innerWidth * 0.21,
             }}>
               <Avatar src="https://cdn.kastatic.org/genfiles/topic-icons/icons/arithmetic.png-af7472-128c.png" />
-              <ListItemText primary="Further Maths" />
+              <ListItemText primary=<div><Typography>Further Maths</Typography></div> />
             </ListItem>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -285,7 +286,7 @@ class CourseList extends React.Component {
               width: window.innerWidth * 0.21,
             }}>
               <Avatar src="https://cdn.kastatic.org/genfiles/topic-icons/icons/sat_reading_writing.png-a4e240-128c.png" />
-              <ListItemText primary="Legal Studies" />
+              <ListItemText primary=<div><Typography>Legal Studies</Typography></div> />
             </ListItem>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -360,7 +361,7 @@ class CourseList extends React.Component {
               width: window.innerWidth * 0.21,
             }}>
               <Avatar src="https://cdn.kastatic.org/genfiles/topic-icons/icons/science.png-3b6492-128c.png" />
-              <ListItemText primary="Chemistry" />
+              <ListItemText primary=<div><Typography>Chemistry</Typography></div> />
             </ListItem>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -405,6 +406,64 @@ class CourseList extends React.Component {
                 width: window.innerWidth * 0.23,
               }}>
                 <ListItemText primary="Energy Supply" />
+              </ListItem>
+            </div>
+
+          </div>
+          <Divider style={{ marginLeft: window.innerWidth * 0.06, marginRight: window.innerWidth * 0.06 }} />
+
+
+
+          <div style={{ marginLeft: window.innerWidth * 0.06, display: 'flex', flexDirection: 'row', paddingTop: 12, paddingBottom: 12 }}>
+            <ListItem style={{
+              width: window.innerWidth * 0.21,
+            }}>
+              <Avatar src="https://cdn.kastatic.org/genfiles/topic-icons/icons/college_careers_more.png-147262-128c.png" />
+              <ListItemText primary=<div><Typography>History Revolutions</Typography></div> />
+            </ListItem>
+
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <ListItem
+                disabled
+                button
+                onClick={event => this.props.change(2)}
+                style={{
+                  width: window.innerWidth * 0.23,
+                }}>
+                <ListItemText primary="American Revolutions" inset />
+              </ListItem>
+              <ListItem
+                disabled
+                button
+                onClick={event => this.props.change(3)}
+                style={{
+                  width: window.innerWidth * 0.23,
+                }}>
+                <ListItemText primary="Chinese Revolutions" inset />
+              </ListItem>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <ListItem
+                disabled
+                button
+                onClick={event => this.props.change(4)}
+                style={{
+                  width: window.innerWidth * 0.23,
+                }}>
+                <ListItemText primary="French Revolutions" />
+              </ListItem>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <ListItem
+              disabled
+              button
+              onClick={event => this.props.change(5)}
+              style={{
+                width: window.innerWidth * 0.23,
+              }}>
+                <ListItemText primary="Russian Revolutions" />
               </ListItem>
             </div>
 

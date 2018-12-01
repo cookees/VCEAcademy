@@ -68,6 +68,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import PropTypes from 'prop-types';
+import {Helmet} from "react-helmet";
 
 
 const styles = theme => ({
@@ -282,6 +283,7 @@ class SubTopicsGrid extends React.Component {
       <Router>
       <React.Fragment>
         <CssBaseline />
+        <Helmet bodyAttributes={{style: 'background-color : #fff'}}/>
         {this.state.current === 40?
           <div>
             <div>
@@ -805,10 +807,10 @@ class SubTopicsGrid extends React.Component {
         {this.state.current === 0 ?
           <div style={{ backgroundColor: '#fff' }}>
 
-              <main>
+              <main style={{ backgroundColor: '#fff' }}>
 
               {this.state.currents === 1 ?
-                <div>
+                <div style={{ backgroundColor: '#fff' }}>
                 <HeaderBar search={this.handleFilters} defaultval={this.state.default} auto={true} changing={this.change} back={1} working={true}/>
                 <div style = {{paddingTop: window.innerHeight * 0.05}}>
                 </div>
