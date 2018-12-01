@@ -49,7 +49,7 @@ function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
 
-class Cubics extends React.Component {
+class Exponential extends React.Component {
 
   constructor(props) {
     super(props);
@@ -145,9 +145,9 @@ class Cubics extends React.Component {
               Polynomials Introduction
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.props.change(3)}}>
+            <MenuItem onClick={() => {this.navigate(3)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              &gt;&nbsp;General Cubic Function
+              General Cubic Function
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(4)}}>
@@ -160,9 +160,9 @@ class Cubics extends React.Component {
               Tangent
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.navigate(6)}}>
+            <MenuItem onClick={() => {this.props.change(6)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              Exponential Functions
+              &gt;&nbsp;Exponential Functions
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(7)}}>
@@ -198,7 +198,7 @@ class Cubics extends React.Component {
         }}
       >
         <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
-        General Cubic Function
+        Exponential Functions
         </Typography>
 
         <CardContent>
@@ -208,19 +208,19 @@ class Cubics extends React.Component {
           <ListItemIcon>
             <PlayArrow />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Exponential Functions" />
         </ListItem>
         <ListItem onClick={this.handleClickOpen} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Exponential Functions" />
         </ListItem>
         <ListItem onClick={this.handleClickOpenAgain} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="Sign Diagram" />
+          <ListItemText primary="Transformations and Examples" />
         </ListItem>
         </List>
 
@@ -235,11 +235,11 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sine and Cosine"}
+            {"Exponential Functions"}
           </DialogTitle>
           <DialogContent style = {{textAlign: "center"}}>
             <YouTube
-              videoId="rcDJRBIy_ik"
+              videoId="hstPY0RwAh8"
               opts={opts}
               onReady={this._onReady}
             />
@@ -266,117 +266,92 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"General Cubic Function"}
+            {"Exponential Functions"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
-            <Typography variant="h6" >
-            General Cubic Function<br/><br/>
-            </Typography>
-
             <img
-            src="http://s0.wp.com/latex.php?latex=y%3Dax%5E%7B3%7D%2Bbx%5E%7B2%7D%2Bcx%2Bd&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3Da%5E%7Bx%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            In this form the y intercept is easy to find since if we set x=0, y =d.
-            <br/><br/>
-            To calculate the x intercepts is much more difficult. Since we know that a cubic will always end up heading in the direction that it starts in, either through a point of inflection or two turning points, we know there will be at least one x intercept. The easiest way to find the intercepts is through substitution.
-            <br/><br/>
-            The turning points can only be found through use of differentiation or using a calculator.
-            </Typography>
-            <br/>
 
             <Typography variant="h6" >
-            Example<br/><br/>
+            Exponential Function Rules<br/><br/>
             </Typography>
 
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
             <Typography variant="subtitle1" gutterBottom>
-            Step 1: Find y-intercept, let x=0
+            There are a number of rules that we can apply to any basic exponential function such as this.
+            <br/><br/>
+            Number one:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%280%29%3D-%280%29%5E%7B3%7D%2B19%280%29-30%3D-30&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28-1%29%3D%5Cfrac%7B1%7D%7Ba%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Step 2: Find x intercept, let y=0
+            Number two:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30%3D0&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%280%29%3D1&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            The easiest way is to factorise the equation is to start substituting in values of x and seeing if the equation equals zero.
-            <br/><br/>
-            Let’s try x=1
+            Number three:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%281%29%3D-1%5E%7B3%7D%2B19%5Ctimes+1-30%3D-12&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%281%29%3Da&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Since the function does not equal zero then we know that one is not a factor so we try another number.
+            Number four is that the x axis is a horizontal asymptote.
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%282%29%3D-2%5E%7B3%7D%2B19%5Ctimes+2-30%3D0&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=x+%5Crightarrow+%5Cinfty%5E%7B-%7D%2C+f%28x%29+%5Crightarrow+0&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore two is a factor of the function. If we take out x minus two from the function then we get
+            Number five is that the domain includes all real numbers.
+            <br/><br/>
+            Number six is that the range of the function is all positive real numbers exclusive of zero
+            <br/><br/>
+            Number seven is that it is only a one to function, which means that every point on the x axis corresponds to one and only one point on the y axis
+            <br/><br/>
+            If we follow these rules the basic function is not hard at all to sketch.
+            <br/><br/>
+            </Typography>
+
+
+            <Typography variant="h6" >
+            The Exponential Function<br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            The main exponential function is euler’s number to the power of x ,which is known as the exponential function
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%5E%7B2%7D-2x%2B15%29&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3De%5E%7Bx%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            We can then use either the quadratic formula or continue to guess and check other factors.
-            <br/><br/>
-            Let’s try 3 given it is a factor of 15
+            To graph this we can just follow the same rules as the exponential functions.
             <br/><br/>
             </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%283%29%3D-3%5E%7B3%7D%2B19%5Ctimes+3-30%5Cnewline+%3D+-27%2B57-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Then we can take out (x-3) from the equation
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%2B3%29%28x%2B5%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore the x-intercepts are 2,3 and -5
-            <br/><br/>
-            </Typography>
-
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -401,107 +376,183 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sign Diagram"}
+            {"Transformations"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
             <Typography variant="h6" >
-            Determine the Shape<br/><br/>
+            Translations<br/><br/>
             </Typography>
-
-            <Typography variant="subtitle1" gutterBottom>
-            A sign diagram gives a general idea of the shape of a cubic by telling us where the function is positive or negative.
-            <br/><br/>
-            We start by substituting in points between the x intercepts
-            </Typography>
-            <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28%5Cfrac%7B5%7D%7B2%7D%29%3D-%28%5Cfrac%7B5%7D%7B2%7D%29%5E%7B3%7D%2B19%28%5Cfrac%7B5%7D%7B2%7D%29-30+%5Cnewline+%5Cnewline+%3D+-%5Cfrac%7B125%7D%7B8%7D%2B%5Cfrac%7B95%7D%7B2%7D-30%3D%5Cfrac%7B15%7D%7B8%7D&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=y%3Da%5E%7Bx-h%7D%2Bk&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            This tells us the function will be positive for 2>x>3.
+            - h represents the shift along the x-axis
+            <br/>
+            - k the shift along the y-axis
             <br/><br/>
-            We already know a point between -5 and 2, the y intercept, which is negative 30. Therefore we know that the function will be negative between these two points.
-            <br/><br/>
-            Now we just need to work out whether the function is positive or negative before and after the x intercepts.
+            So the rules above will face a shift along this axis
             </Typography>
             <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28-6%29%3D-%28-6%29%5E%7B3%7D%2B19%28-6%29-30+%5Cnewline+%3D+216-114-30%3D72&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=%28-1%2C%5Cfrac%7B1%7D%7Ba%7D%29+%5Crightarrow+%28-1%2Bh%2C%5Cfrac%7B1%7D%7Ba%7D%2Bk%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%280%2C1%29+%5Crightarrow+%28h%2C1%2Bk%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%281%2Ca%29+%5Crightarrow+%281%2Bh%2Ca%2Bk%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
+            <Typography variant="h6" >
+            Reflections<br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            The graph can be reflected in the x-axis by placing a negative in front of the function to get:
+
+            </Typography>
+            <br/>
+
             <img
-            src="http://s0.wp.com/latex.php?latex=f%284%29%3D-%284%29%5E%7B3%7D%2B19%284%29-30+%5Cnewline+%3D+-64%2B76-30%3D-18&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-e%5E%7Bx%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore it is positive when x&lt;-5 and negative for x&gt;4
-            <br/><br/>
-            Now we can can draw the sign diagram to get an idea of the shape
+            The graph can be reflected in the y-axis by placing a negative in front of x in the function to get:
             </Typography>
             <br/>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcsigndiagram.jpg"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3De%5E%7B-x%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Here we can see the black function is a reflection of the blue function in the x axis and the red function is a reflection of the blue function in the x axis.
+            </Typography>
+            <br/>
+
+            <img
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcexp1-300x300.png"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            It is also possible for a function to be reflected in both the x and y axis.
+            <br/><br/>
+            If there are translations applied to the function as well, you must first reflect the function before you translate them.
+            <br/><br/>
+            </Typography>
 
             <Typography variant="h6" gutterBottom>
-            Find the local Minimum and Maximums
+            Dilation
             <br/><br/>
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-            They can be found through the use of the min and max functions on your calculators or through power differentiation shown below
+            If the function has a dilation factor in front of it, say k. Then the image is multiplied by this factor.
+
+
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%27%28x%29%3D-3%5Ctimes+x%5E%7B3-1%7D%2B19%5Cnewline+%3D-3x%5E%7B2%7D%2B19&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=%28-1%2C%5Cfrac%7B1%7D%7Ba%7D%29+%5Crightarrow+%28-1%2C%5Cfrac%7Bk%7D%7Ba%7D%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%280%2C1%29+%5Crightarrow+%280%2Ck%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%281%2Ca%29+%5Crightarrow+%281%2Cka%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the turning points by setting f'(x)=0 and solve for x
+            If the function has a dilation factor of x divided by k. Then the image is dilated by a factor k from the y axis.
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=-3x%5E%7B2%7D%2B19%3D0%5Cnewline+x%3D%5Cpm%5Csqrt%7B%5Cfrac%7B19%7D%7B3%7D%7D%5Cnewline%3D%5Cpm2.52&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=%28-1%2C%5Cfrac%7B1%7D%7Ba%7D%29+%5Crightarrow+%28-k%2C%5Cfrac%7B1%7D%7Ba%7D%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%280%2C1%29+%5Crightarrow+%280%2C1%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%281%2Ca%29+%5Crightarrow+%28k%2Cka%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+
+            <Typography variant="h6" gutterBottom>
+            Exponential Function Examples
+            <br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Lets now have a look at an example, such as the function:
+
+
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3De%5E%7B1-x%7D%2B3&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the y co-ordinates by substituting in the x values above into the original equation
+            This we can rewrite quickly as:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%282.52%29%3D-2%5E%7B2.52%7D%2B19%5Ctimes+2.52-30%3D1.88&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28-2.52%29%3D-2%5E%7B-2.52%7D%2B19%5Ctimes+-2.52-30%3D-61.88&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3De%5E%7B-%28x-1%29%7D%2B3&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore the turning points are (2.52,1.88) and (-2.52,-61.88)
+            Straight away we can see that there is a reflection in the y-axis, no dilation, but a shift of the graph of one to the right and three up.
             <br/><br/>
-            So the graph can be sketched below:
+            Now we just need to apply this to our basic e function
             <br/><br/>
             </Typography>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcgencubic1-300x300.jpg"
+            src="http://s0.wp.com/latex.php?latex=%28-1%2C%5Cfrac%7B1%7D%7Be%7D%29+%5Crightarrow+%280%2Ce%2B3%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=%280%2C1%29+%5Crightarrow+%281%2C4%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=%281%2Ce%29+%5Crightarrow+%282%2C%5Cfrac%7B1%7D%7Be%7D%2B3%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            The asymptote will move up to x=3
+            </Typography>
+
+            <img
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcexp-300x300.jpg"
             alt="new"
             /><br/><br/>
 
@@ -525,8 +576,8 @@ class Cubics extends React.Component {
   }
 }
 
-Cubics.propTypes = {
+Exponential.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Cubics);
+export default withStyles(styles)(Exponential);

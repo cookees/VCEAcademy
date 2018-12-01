@@ -49,7 +49,7 @@ function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
 
-class Cubics extends React.Component {
+class Logarithms extends React.Component {
 
   constructor(props) {
     super(props);
@@ -145,9 +145,9 @@ class Cubics extends React.Component {
               Polynomials Introduction
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.props.change(3)}}>
+            <MenuItem onClick={() => {this.navigate(3)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              &gt;&nbsp;General Cubic Function
+              General Cubic Function
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(4)}}>
@@ -165,9 +165,9 @@ class Cubics extends React.Component {
               Exponential Functions
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.navigate(7)}}>
+            <MenuItem onClick={() => {this.props.change(7)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              Logarithmic Functions
+              &gt;&nbsp; Logarithmic Functions
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(8)}}>
@@ -198,7 +198,7 @@ class Cubics extends React.Component {
         }}
       >
         <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
-        General Cubic Function
+        Logarithmic Functions
         </Typography>
 
         <CardContent>
@@ -208,19 +208,19 @@ class Cubics extends React.Component {
           <ListItemIcon>
             <PlayArrow />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Logarithmic Functions" />
         </ListItem>
         <ListItem onClick={this.handleClickOpen} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Logarithmic Functions" />
         </ListItem>
         <ListItem onClick={this.handleClickOpenAgain} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="Sign Diagram" />
+          <ListItemText primary="Transformations" />
         </ListItem>
         </List>
 
@@ -235,11 +235,11 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sine and Cosine"}
+            {"Logarithmic Functions"}
           </DialogTitle>
           <DialogContent style = {{textAlign: "center"}}>
             <YouTube
-              videoId="rcDJRBIy_ik"
+              videoId="7rhHkqXdxDE"
               opts={opts}
               onReady={this._onReady}
             />
@@ -266,117 +266,79 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"General Cubic Function"}
+            {"Logarithmic Functions"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
-            <Typography variant="h6" >
-            General Cubic Function<br/><br/>
-            </Typography>
 
-            <img
-            src="http://s0.wp.com/latex.php?latex=y%3Dax%5E%7B3%7D%2Bbx%5E%7B2%7D%2Bcx%2Bd&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            In this form the y intercept is easy to find since if we set x=0, y =d.
-            <br/><br/>
-            To calculate the x intercepts is much more difficult. Since we know that a cubic will always end up heading in the direction that it starts in, either through a point of inflection or two turning points, we know there will be at least one x intercept. The easiest way to find the intercepts is through substitution.
-            <br/><br/>
-            The turning points can only be found through use of differentiation or using a calculator.
-            </Typography>
-            <br/>
 
             <Typography variant="h6" >
-            Example<br/><br/>
+            Logarithmic Functions<br/><br/>
             </Typography>
 
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
             <Typography variant="subtitle1" gutterBottom>
-            Step 1: Find y-intercept, let x=0
+            A logarithmic function is used to better model functions which increase at an exponential rate. It is the inverse of the exponential function and the general equation is:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%280%29%3D-%280%29%5E%7B3%7D%2B19%280%29-30%3D-30&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3Dlog_%7Ba%7D%28x%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Step 2: Find x intercept, let y=0
+            The two main log functions that are used in methods is log to base of eulers number, the natural log and log to the base 10, where every time x increases by 1 the function increases by a factor of 10.
+            <br/><br/>
+            </Typography>
+
+            <Typography variant="h6" >
+            Sketching log functions<br/><br/>
+            </Typography>
+
+
+            <Typography variant="subtitle1" gutterBottom>
+            Here are a few guidelines to sketching logarithmic functions.
+            <br/><br/>
+            Number one
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30%3D0&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%281%29%3D0&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            The easiest way is to factorise the equation is to start substituting in values of x and seeing if the equation equals zero.
-            <br/><br/>
-            Let’s try x=1
+            Number two
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%281%29%3D-1%5E%7B3%7D%2B19%5Ctimes+1-30%3D-12&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28a%29%3D1&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Since the function does not equal zero then we know that one is not a factor so we try another number.
+            Number three is that we can’t take a log of a negative number or zero, since any number to the power of another number cannot equal zero or a negative number, you just get smaller fractions. Therefore the domain is only real positive numbers.
+            <br/><br/>
+            Number four
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%282%29%3D-2%5E%7B3%7D%2B19%5Ctimes+2-30%3D0&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=x%5Crightarrow+0%2C+f%28x%29+%5Crightarrow+%5Cinfty%5E%7B-%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore two is a factor of the function. If we take out x minus two from the function then we get
+            Number five is that the range includes all real numbers, which means the function can equal anything.
+            <br/><br/>
+            Number six is that it is only a one to function, which means that every point on the x axis corresponds to one and only one point on the y axis
+            <br/><br/>
+            If we follow these rules the basic function is not hard at all to sketch.
             <br/><br/>
             </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%5E%7B2%7D-2x%2B15%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            We can then use either the quadratic formula or continue to guess and check other factors.
-            <br/><br/>
-            Let’s try 3 given it is a factor of 15
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%283%29%3D-3%5E%7B3%7D%2B19%5Ctimes+3-30%5Cnewline+%3D+-27%2B57-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Then we can take out (x-3) from the equation
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%2B3%29%28x%2B5%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore the x-intercepts are 2,3 and -5
-            <br/><br/>
-            </Typography>
-
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -401,109 +363,165 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sign Diagram"}
+            {"Transformations"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
             <Typography variant="h6" >
-            Determine the Shape<br/><br/>
+            Translations<br/><br/>
             </Typography>
-
-            <Typography variant="subtitle1" gutterBottom>
-            A sign diagram gives a general idea of the shape of a cubic by telling us where the function is positive or negative.
-            <br/><br/>
-            We start by substituting in points between the x intercepts
-            </Typography>
-            <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28%5Cfrac%7B5%7D%7B2%7D%29%3D-%28%5Cfrac%7B5%7D%7B2%7D%29%5E%7B3%7D%2B19%28%5Cfrac%7B5%7D%7B2%7D%29-30+%5Cnewline+%5Cnewline+%3D+-%5Cfrac%7B125%7D%7B8%7D%2B%5Cfrac%7B95%7D%7B2%7D-30%3D%5Cfrac%7B15%7D%7B8%7D&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=y%3Dlog_%7Ba%7D%28x-h%29%2Bk&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            This tells us the function will be positive for 2>x>3.
+            The rules of sketching the function this function are similar to the exponential function
             <br/><br/>
-            We already know a point between -5 and 2, the y intercept, which is negative 30. Therefore we know that the function will be negative between these two points.
-            <br/><br/>
-            Now we just need to work out whether the function is positive or negative before and after the x intercepts.
+            In this equation h represents the shift along the x-axis and k the shift along the y-axis. So our known co-ordinates will face a small shift
             </Typography>
             <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28-6%29%3D-%28-6%29%5E%7B3%7D%2B19%28-6%29-30+%5Cnewline+%3D+216-114-30%3D72&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=%28-1%2C%5Cfrac%7B1%7D%7Ba%7D%29+%5Crightarrow+%28-1%2Bh%2C%5Cfrac%7B1%7D%7Ba%7D%2Bk%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%280%2C1%29+%5Crightarrow+%28h%2C1%2Bk%29&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+            <img
+            src="http://s0.wp.com/latex.php?latex=%281%2Ca%29+%5Crightarrow+%281%2Bh%2Ca%2Bk%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
+            <Typography variant="h6" >
+            Reflections<br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            The graph can be reflected in the x-axis by placing a negative in front of the function to get:
+
+            </Typography>
+            <br/>
+
             <img
-            src="http://s0.wp.com/latex.php?latex=f%284%29%3D-%284%29%5E%7B3%7D%2B19%284%29-30+%5Cnewline+%3D+-64%2B76-30%3D-18&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=y%3D-log%28x%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore it is positive when x&lt;-5 and negative for x&gt;4
-            <br/><br/>
-            Now we can can draw the sign diagram to get an idea of the shape
+            The graph can be reflected in the y-axis by placing a negative in front of x in the function to get:
+
             </Typography>
             <br/>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcsigndiagram.jpg"
+            src="http://s0.wp.com/latex.php?latex=y%3D-log%28-x%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Since we can’t have the log of a negative number then all the values of x for this function must be negative.
+            </Typography>
+            <br/>
+
+            <img
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funclog1-300x300.jpg"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Here we can see a number of natural logs graphed here. Increasing the value of the base will cause the function to increase at a greater rate for values of x greater than one and decrease at a greater rate for values less than one but greater than zero.
+            <br/><br/>
+            Here we can see the green function is a reflection of the blue function in the x axis and the red function is a reflection of the blue function in the x axis.
+            <br/><br/>
+            It is also possible for a log function to be reflected in both the x and y axis, if the negative is applied before the function and the x value.
+            <br/><br/>
+            If there are translations applied to the function as well, you must first reflect the function before you translate them.
+            <br/><br/>
+            </Typography>
 
             <Typography variant="h6" gutterBottom>
-            Find the local Minimum and Maximums
+            Dilation
             <br/><br/>
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-            They can be found through the use of the min and max functions on your calculators or through power differentiation shown below
+            The effect of dilation is similar to what happened with the exponential functions. If there is a value k in front of the function the dilation factor will be k from the x axis, the value will just be multiplied by k.
+            <br/><br/>
+            If there was a x coefficient to the value of k inside the log brackets then the dilation factor to the y axis will be one over k, the x-coefficient will be multiplied by one over k for a given value.
+
+
+            <br/><br/>
+            </Typography>
+
+            <Typography variant="h6" gutterBottom>
+            Examples
+            <br/><br/>
+            </Typography>
+
+
+            <Typography variant="subtitle1" gutterBottom>
+            Lets now have a look at an example:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%27%28x%29%3D-3%5Ctimes+x%5E%7B3-1%7D%2B19%5Cnewline+%3D-3x%5E%7B2%7D%2B19&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-3log%282x%2B5%29-3&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the turning points by setting f'(x)=0 and solve for x
+            Which we can rewrite as
+
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=-3x%5E%7B2%7D%2B19%3D0%5Cnewline+x%3D%5Cpm%5Csqrt%7B%5Cfrac%7B19%7D%7B3%7D%7D%5Cnewline%3D%5Cpm2.52&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-3log%282%28x%2B%5Cfrac%7B5%7D%7B2%7D%29%29-3&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+
+            <Typography variant="subtitle1" gutterBottom>
+            Straight away we can see that there is a reflection in the x-axis, dilation by a factor of three from the x axis, a half from the y-axis, but a shift of the graph five over two to the left and three down.
+            <br/><br/>
+            At this stage we need to have the shape of a negative log in our mind and from there we know it will have both a x and y intercept. A y-intercept due to the shift to the left, allowing for some negative values of x.
+            <br/><br/>
+            The asymptote will move:
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=x%3D0+%5Crightarrow+x%3D-2.5&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the y co-ordinates by substituting in the x values above into the original equation
+            Then find the y intercept, let x=0
+
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%282.52%29%3D-2%5E%7B2.52%7D%2B19%5Ctimes+2.52-30%3D1.88&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28-2.52%29%3D-2%5E%7B-2.52%7D%2B19%5Ctimes+-2.52-30%3D-61.88&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%280%29%3De%5E%7B1-0%7D%2B3%3De%2B3&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore the turning points are (2.52,1.88) and (-2.52,-61.88)
-            <br/><br/>
-            So the graph can be sketched below:
+
+            Given there is no dilation we can just draw the normal exponential function going through the y intercept of e plus 3, after it has been reflected in the x-axis.
             <br/><br/>
             </Typography>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcgencubic1-300x300.jpg"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcexp-300x300.jpg"
             alt="new"
             /><br/><br/>
+
 
             </DialogContentText>
           </DialogContent>
@@ -525,8 +543,8 @@ class Cubics extends React.Component {
   }
 }
 
-Cubics.propTypes = {
+Logarithms.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Cubics);
+export default withStyles(styles)(Logarithms);

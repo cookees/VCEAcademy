@@ -49,7 +49,7 @@ function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
 
-class Cubics extends React.Component {
+class Sine extends React.Component {
 
   constructor(props) {
     super(props);
@@ -145,14 +145,14 @@ class Cubics extends React.Component {
               Polynomials Introduction
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.props.change(3)}}>
+            <MenuItem onClick={() => {this.navigate(3)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              &gt;&nbsp;General Cubic Function
+              General Cubic Function
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.navigate(4)}}>
+            <MenuItem onClick={() => {this.props.change(4)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              Sine and Cosine
+              &gt;&nbsp;Sine and Cosine
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(5)}}>
@@ -198,7 +198,7 @@ class Cubics extends React.Component {
         }}
       >
         <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
-        General Cubic Function
+        Sine and Cosine
         </Typography>
 
         <CardContent>
@@ -208,19 +208,19 @@ class Cubics extends React.Component {
           <ListItemIcon>
             <PlayArrow />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Sine and Cosine" />
         </ListItem>
         <ListItem onClick={this.handleClickOpen} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Sine and Cosine" />
         </ListItem>
         <ListItem onClick={this.handleClickOpenAgain} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="Sign Diagram" />
+          <ListItemText primary="Sin and Cos Equations" />
         </ListItem>
         </List>
 
@@ -239,7 +239,7 @@ class Cubics extends React.Component {
           </DialogTitle>
           <DialogContent style = {{textAlign: "center"}}>
             <YouTube
-              videoId="rcDJRBIy_ik"
+              videoId="VHQufGkss5g"
               opts={opts}
               onReady={this._onReady}
             />
@@ -266,114 +266,60 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"General Cubic Function"}
+            {"Sine and Cosine"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
             <Typography variant="h6" >
-            General Cubic Function<br/><br/>
+            Unit Circle<br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=y%3Dax%5E%7B3%7D%2Bbx%5E%7B2%7D%2Bcx%2Bd&bg=ffffff&fg=000&s=0"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/unitcircle.gif"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            In this form the y intercept is easy to find since if we set x=0, y =d.
+            The angle, theta, is measured from the positive x-axis line in a reverse clockwise direction and the measurement unit is radians. Each quadrant is divided up into 90 degree quarters which are the equivalent of &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5Cfrac%7B%5Cpi%7D%7B2%7D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            />&nbsp; radians. From this graph the sin function will be positive for the first two quadrants, which is the equivalent of &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5B0%2C%5Cpi%5D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            />&nbsp;.
             <br/><br/>
-            To calculate the x intercepts is much more difficult. Since we know that a cubic will always end up heading in the direction that it starts in, either through a point of inflection or two turning points, we know there will be at least one x intercept. The easiest way to find the intercepts is through substitution.
+            For cos it will be positive in the first and fourth quadrant, as that is where the x-axis is positive. This will be in the range of &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5B0%2C%5Cfrac%7B%5Cpi%7D%7B2%7D%5D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            />&nbsp; & &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5B%5Cfrac%7B3%5Cpi%7D%7B2%7D%2C2%5Cpi%5D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            />&nbsp; . Theta can also take on a negative value, which is just when it moves in an anti-clockwise direction. There for we know for cos it will be positive in the range of &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5B-%5Cfrac%7B%5Cpi%7D%7B2%7D%2C%5Cfrac%7B%5Cpi%7D%7B2%7D%5D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            />&nbsp;
             <br/><br/>
-            The turning points can only be found through use of differentiation or using a calculator.
+            Sin and cos will both have the same maximum, one and the same minimum, negative one. The difference between the minimum and the average and the maximum and the average is the amplitude. In the basic sin and cos functions the amplitude is one.
+            <br/><br/>
+            The period of the function is how long the graph takes to perform a full circular rotation and in the basic function that is 2π.
+            <br/><br/>
+            Once the original pattern of a sine and cos function, the starting point, the period and the amplitude is known then they are able to be sketched.
+            <br/><br/>
+            Lets take a look at the basic sine and cos functions.
             </Typography>
             <br/>
 
-            <Typography variant="h6" >
-            Example<br/><br/>
-            </Typography>
-
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30&bg=ffffff&fg=000&s=0"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/trig1-300x300.jpg"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Step 1: Find y-intercept, let x=0
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%280%29%3D-%280%29%5E%7B3%7D%2B19%280%29-30%3D-30&bg=ffffff&fg=000&s=0"
+            Here we can see that the cos function is the same as a sin function but shifted slightly to the right by  &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5Cfrac%7B%5Cpi%7D%7B2%7D&bg=ffffff&fg=000&s=0"
             alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Step 2: Find x intercept, let y=0
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            The easiest way is to factorise the equation is to start substituting in values of x and seeing if the equation equals zero.
-            <br/><br/>
-            Let’s try x=1
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%281%29%3D-1%5E%7B3%7D%2B19%5Ctimes+1-30%3D-12&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Since the function does not equal zero then we know that one is not a factor so we try another number.
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%282%29%3D-2%5E%7B3%7D%2B19%5Ctimes+2-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore two is a factor of the function. If we take out x minus two from the function then we get
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%5E%7B2%7D-2x%2B15%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            We can then use either the quadratic formula or continue to guess and check other factors.
-            <br/><br/>
-            Let’s try 3 given it is a factor of 15
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%283%29%3D-3%5E%7B3%7D%2B19%5Ctimes+3-30%5Cnewline+%3D+-27%2B57-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Then we can take out (x-3) from the equation
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%2B3%29%28x%2B5%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore the x-intercepts are 2,3 and -5
+            />&nbsp;. The same pattern for each function is repeated continuously.
             <br/><br/>
             </Typography>
 
@@ -401,57 +347,45 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sign Diagram"}
+            {"Sin and Cos Equations"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
-            <Typography variant="h6" >
-            Determine the Shape<br/><br/>
-            </Typography>
-
             <Typography variant="subtitle1" gutterBottom>
-            A sign diagram gives a general idea of the shape of a cubic by telling us where the function is positive or negative.
-            <br/><br/>
-            We start by substituting in points between the x intercepts
+            Once we have the basic form of the sin and cos functions in our head, it’s time to look at the more complicated sin and cos equations.
             </Typography>
             <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28%5Cfrac%7B5%7D%7B2%7D%29%3D-%28%5Cfrac%7B5%7D%7B2%7D%29%5E%7B3%7D%2B19%28%5Cfrac%7B5%7D%7B2%7D%29-30+%5Cnewline+%5Cnewline+%3D+-%5Cfrac%7B125%7D%7B8%7D%2B%5Cfrac%7B95%7D%7B2%7D-30%3D%5Cfrac%7B15%7D%7B8%7D&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=y%3Da%5Csin%28n%28t%5Cpm%5Cepsilon%29%29%5Cpm+b&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=y%3Da%5Ccos%28n%28t%5Cpm%5Cepsilon%29%29%5Cpm+b&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            This tells us the function will be positive for 2>x>3.
+            In these equations epsilon gives us the shift along the x axis, where it moves in the reverse direction of the epsilon sign. The b component of the equation is the shift either up or down on the y axis.
             <br/><br/>
-            We already know a point between -5 and 2, the y intercept, which is negative 30. Therefore we know that the function will be negative between these two points.
+            The a determines the amplitude of the equation, which is as we said before the difference between the max or min and the mean.
             <br/><br/>
-            Now we just need to work out whether the function is positive or negative before and after the x intercepts.
+            We also need to determine the period of the function, which is how often the pattern repeats itself. The formula for the period is:
             </Typography>
             <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28-6%29%3D-%28-6%29%5E%7B3%7D%2B19%28-6%29-30+%5Cnewline+%3D+216-114-30%3D72&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%284%29%3D-%284%29%5E%7B3%7D%2B19%284%29-30+%5Cnewline+%3D+-64%2B76-30%3D-18&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=Period+%3D%5Cfrac%7B2%5Cpi%7D%7B%5Clvert+n+%5Crvert%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore it is positive when x&lt;-5 and negative for x&gt;4
-            <br/><br/>
-            Now we can can draw the sign diagram to get an idea of the shape
+            The final thing we look out for is for any reflections.  If there is a negative sign in front of the a the function will be reflected in the x-axis. If there is a negative sign in front of the n then there will be a reflection in the y axis.
             </Typography>
             <br/>
 
-            <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcsigndiagram.jpg"
-            alt="new"
-            /><br/><br/>
 
             <Typography variant="h6" gutterBottom>
             Find the local Minimum and Maximums
@@ -459,51 +393,88 @@ class Cubics extends React.Component {
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-            They can be found through the use of the min and max functions on your calculators or through power differentiation shown below
+            Example
+            <br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Lets take a look at a question which asks us to sketch the function of
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%27%28x%29%3D-3%5Ctimes+x%5E%7B3-1%7D%2B19%5Cnewline+%3D-3x%5E%7B2%7D%2B19&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%3A%5B-%5Cpi%2C%5Cpi%5D+%5Crightarrow+R%2C+f%28x%29%3D5cos%282%28x%2B%5Cfrac%7B%5Cpi%7D%7B3%7D%29%29&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the turning points by setting f'(x)=0 and solve for x
+            Step 1 Calculate the amplitude
+            <br/><br/>
+            This is the number in front of cos, 5. Since there is no shift in the y direction then we know also that our min and maximum will be negative 5 and 5
+            <br/><br/>
+            Step 2 Calculate the period
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=-3x%5E%7B2%7D%2B19%3D0%5Cnewline+x%3D%5Cpm%5Csqrt%7B%5Cfrac%7B19%7D%7B3%7D%7D%5Cnewline%3D%5Cpm2.52&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=Period+%3D%5Cfrac%7B2%5Cpi%7D%7B%5Clvert+2+%5Crvert%7D%3D%5Cpi&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the y co-ordinates by substituting in the x values above into the original equation
+            Step 3 Determine the y intercept let x=0
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%282.52%29%3D-2%5E%7B2.52%7D%2B19%5Ctimes+2.52-30%3D1.88&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28-2.52%29%3D-2%5E%7B-2.52%7D%2B19%5Ctimes+-2.52-30%3D-61.88&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%280%29%3D5cos%282%280%2B%5Cfrac%7B%5Cpi%7D%7B3%7D%29%29%5Cnewline+%3D5cos%28%5Cfrac%7B2%5Cpi%7D%7B3%7D%29+%3D-%5Cfrac%7B5%7D%7B2%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore the turning points are (2.52,1.88) and (-2.52,-61.88)
-            <br/><br/>
-            So the graph can be sketched below:
+            Step 4 Find the x intercepts over the range, let f(x)=0
             <br/><br/>
             </Typography>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcgencubic1-300x300.jpg"
+            src="http://s0.wp.com/latex.php?latex=5cos%282%28x%2B%5Cfrac%7B%5Cpi%7D%7B3%7D%29%29%3D0%5Cnewline+2%28x%2B%5Cfrac%7B%5Cpi%7D%7B3%7D%29%3Dcos%5E%7B-1%7D%280%29%5Cnewline+2%28x%2B%5Cfrac%7B%5Cpi%7D%7B3%7D%29%3D%5Cfrac%7B-3%5Cpi%7D%7B2%7D%2C%5Cfrac%7B-%5Cpi%7D%7B2%7D%2C%5Cfrac%7B%5Cpi%7D%7B2%7D%2C%5Cfrac%7B3%5Cpi%7D%7B2%7D%2C+%5Cfrac%7B5%5Cpi%7D%7B2%7D%5Cnewline+x%2B%5Cfrac%7B%5Cpi%7D%7B3%7D%3D%5Cfrac%7B-3%5Cpi%7D%7B4%7D%2C%5Cfrac%7B-%5Cpi%7D%7B4%7D%2C%5Cfrac%7B%5Cpi%7D%7B4%7D%2C%5Cfrac%7B3%5Cpi%7D%7B4%7D%2C%5Cfrac%7B5%5Cpi%7D%7B4%7D%5Cnewline+x%3D%5Cfrac%7B-13%5Cpi%7D%7B12%7D%2C%5Cfrac%7B-7%5Cpi%7D%7B12%7D%2C%5Cfrac%7B-%5Cpi%7D%7B12%7D%2C%5Cfrac%7B5%5Cpi%7D%7B12%7D%2C%5Cfrac%7B11%5Cpi%7D%7B12%7D+&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            However the domain is &nbsp;<img
+            src="http://latex2png.com/output//latex_8c629ecb8ee3a2c059e2ca846842284e.png"
+            alt="new"
+            />&nbsp;
+            <br/><br/>
+            Therefore: &nbsp;<img
+            src="http://latex2png.com/output//latex_675744c33e9a8b313e02f9fc8abb5eb6.png"
+            alt="new"
+            />&nbsp;
+            <br/><br/>
+            Step 5 Find the start point of the function
+            <br/><br/>
+            This is a shift of &nbsp;<img
+            src="http://s0.wp.com/latex.php?latex=%5Cfrac%7B%5Cpi%7D%7B2%7D&bg=ffffff&fg=000&s=0"
+            alt="new"
+            />&nbsp; to the left.
+            <br/><br/>
+            Step 6 Sketch the function using the starting point and the x and y intercepts, amplitude and period
+            <br/><br/>
+            </Typography>
+
+            <img
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/trig2-300x300.jpg"
+            alt="new"
+            /><br/><br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Note that the pattern repeats itself twice which is what we expect from a period of pi.
+            <br/><br/>
+            In the exam it is perfectly acceptable to also label your x-axis as pi fractions and much easier to do when sketching by hand.
+            <br/><br/>
+            </Typography>
+
 
             </DialogContentText>
           </DialogContent>
@@ -525,8 +496,8 @@ class Cubics extends React.Component {
   }
 }
 
-Cubics.propTypes = {
+Sine.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Cubics);
+export default withStyles(styles)(Sine);

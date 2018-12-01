@@ -49,7 +49,7 @@ function Transition(props) {
   return <Slide direction="up" {...props} />;
 }
 
-class Cubics extends React.Component {
+class Hybrid extends React.Component {
 
   constructor(props) {
     super(props);
@@ -145,9 +145,9 @@ class Cubics extends React.Component {
               Polynomials Introduction
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.props.change(3)}}>
+            <MenuItem onClick={() => {this.navigate(3)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              &gt;&nbsp;General Cubic Function
+              General Cubic Function
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(4)}}>
@@ -170,9 +170,9 @@ class Cubics extends React.Component {
               Logarithmic Functions
               </Typography>
             </MenuItem>
-            <MenuItem onClick={() => {this.navigate(8)}}>
+            <MenuItem onClick={() => {this.props.change(8)}}>
               <Typography variant ='body2' style = {{paddingLeft: 8}} align = 'left'>
-              Hybrid / Absolute Value Functions
+              &gt;&nbsp;Hybrid / Absolute Value Functions
               </Typography>
             </MenuItem>
             <MenuItem onClick={() => {this.navigate(9)}}>
@@ -198,7 +198,7 @@ class Cubics extends React.Component {
         }}
       >
         <Typography style = {{paddingTop: 15, paddingLeft: 50}} variant ='h6' align = 'left'>
-        General Cubic Function
+        Hybrid and Absolute Value Functions
         </Typography>
 
         <CardContent>
@@ -208,19 +208,19 @@ class Cubics extends React.Component {
           <ListItemIcon>
             <PlayArrow />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Hybrid and Absolute Functions" />
         </ListItem>
         <ListItem onClick={this.handleClickOpen} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="General Cubic Function" />
+          <ListItemText primary="Hybrid Functions" />
         </ListItem>
         <ListItem onClick={this.handleClickOpenAgain} button>
           <ListItemIcon>
             <FileCopy />
           </ListItemIcon>
-          <ListItemText primary="Sign Diagram" />
+          <ListItemText primary="Absolute Value Functions" />
         </ListItem>
         </List>
 
@@ -235,11 +235,11 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sine and Cosine"}
+            {"Hybrid and Absolute Functions"}
           </DialogTitle>
           <DialogContent style = {{textAlign: "center"}}>
             <YouTube
-              videoId="rcDJRBIy_ik"
+              videoId="N_5ZKvWzZjY"
               opts={opts}
               onReady={this._onReady}
             />
@@ -266,116 +266,36 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"General Cubic Function"}
+            {"Hybrid Functions"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
-            <Typography variant="h6" >
-            General Cubic Function<br/><br/>
-            </Typography>
 
-            <img
-            src="http://s0.wp.com/latex.php?latex=y%3Dax%5E%7B3%7D%2Bbx%5E%7B2%7D%2Bcx%2Bd&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            In this form the y intercept is easy to find since if we set x=0, y =d.
-            <br/><br/>
-            To calculate the x intercepts is much more difficult. Since we know that a cubic will always end up heading in the direction that it starts in, either through a point of inflection or two turning points, we know there will be at least one x intercept. The easiest way to find the intercepts is through substitution.
-            <br/><br/>
-            The turning points can only be found through use of differentiation or using a calculator.
-            </Typography>
-            <br/>
 
             <Typography variant="h6" >
-            Example<br/><br/>
+            Hybrid Functions<br/><br/>
             </Typography>
 
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
             <Typography variant="subtitle1" gutterBottom>
-            Step 1: Find y-intercept, let x=0
+            A hybrid function is where there are different rules or functions over different areas of the domain. This is used to model real life situations where it is too difficult to find the one function to model all of the data. Hybrid functions appear like this:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%280%29%3D-%280%29%5E%7B3%7D%2B19%280%29-30%3D-30&bg=ffffff&fg=000&s=0"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funchybrida.jpg"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Step 2: Find x intercept, let y=0
+            In order to sketch this graph we need to break it down into the separate domains and draw the function between their end points.
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D-x%5E%7B3%7D%2B19x-30%3D0&bg=ffffff&fg=000&s=0"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funchybrid-300x300.jpg"
             alt="new"
             /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            The easiest way is to factorise the equation is to start substituting in values of x and seeing if the equation equals zero.
-            <br/><br/>
-            Let’s try x=1
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%281%29%3D-1%5E%7B3%7D%2B19%5Ctimes+1-30%3D-12&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Since the function does not equal zero then we know that one is not a factor so we try another number.
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%282%29%3D-2%5E%7B3%7D%2B19%5Ctimes+2-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore two is a factor of the function. If we take out x minus two from the function then we get
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%5E%7B2%7D-2x%2B15%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            We can then use either the quadratic formula or continue to guess and check other factors.
-            <br/><br/>
-            Let’s try 3 given it is a factor of 15
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%283%29%3D-3%5E%7B3%7D%2B19%5Ctimes+3-30%5Cnewline+%3D+-27%2B57-30%3D0&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Then we can take out (x-3) from the equation
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%28x%29%3D%28x-2%29%28-x%2B3%29%28x%2B5%29&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore the x-intercepts are 2,3 and -5
-            <br/><br/>
-            </Typography>
 
             </DialogContentText>
           </DialogContent>
@@ -401,107 +321,114 @@ class Cubics extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title" style = {{textAlign: "center"}}>
-            {"Sign Diagram"}
+            {"Absolute Value Functions"}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
 
             <Typography variant="h6" >
-            Determine the Shape<br/><br/>
+            Absolute Value Functions<br/><br/>
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-            A sign diagram gives a general idea of the shape of a cubic by telling us where the function is positive or negative.
-            <br/><br/>
-            We start by substituting in points between the x intercepts
+            Now we will look at the absolute value function. The absolute value, also known as the modulus, function is used to define a number that is always positive. It can be shown as a hybrid function such as:
             </Typography>
             <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28%5Cfrac%7B5%7D%7B2%7D%29%3D-%28%5Cfrac%7B5%7D%7B2%7D%29%5E%7B3%7D%2B19%28%5Cfrac%7B5%7D%7B2%7D%29-30+%5Cnewline+%5Cnewline+%3D+-%5Cfrac%7B125%7D%7B8%7D%2B%5Cfrac%7B95%7D%7B2%7D-30%3D%5Cfrac%7B15%7D%7B8%7D&bg=ffffff&fg=000&s=0"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funchybridb.jpg"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            This tells us the function will be positive for 2>x>3.
-            <br/><br/>
-            We already know a point between -5 and 2, the y intercept, which is negative 30. Therefore we know that the function will be negative between these two points.
-            <br/><br/>
-            Now we just need to work out whether the function is positive or negative before and after the x intercepts.
+            Absolute value of x means that for every positive value of x the function just equals x and is always positive. For every negative value of x the function is equals negative x and due to the double negative will now be positive.
+
+            </Typography>
+            <br/>
+
+            <Typography variant="h6" >
+            Absolute Function Properties<br/><br/>
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+            Absolute value functions have a number of properties which are important to know, however they are fairly intuitive, such as this. |ab|=|a||b|
+            </Typography>
+            <br/>
+
+            <Typography variant="subtitle1" gutterBottom>
+            The absolute value of two numbers which have been multiplied together is the same as the absolute value of the two numbers which are then multiplied together.
+
             </Typography>
             <br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28-6%29%3D-%28-6%29%5E%7B3%7D%2B19%28-6%29-30+%5Cnewline+%3D+216-114-30%3D72&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <img
-            src="http://s0.wp.com/latex.php?latex=f%284%29%3D-%284%29%5E%7B3%7D%2B19%284%29-30+%5Cnewline+%3D+-64%2B76-30%3D-18&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=%5Clvert+%5Cfrac%7Ba%7D%7Bb%7D+%5Crvert+%3D+%5Cfrac%7B%5Clvert+a%5Crvert%7D%7B%5Clvert+b%5Crvert%7D&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Therefore it is positive when x&lt;-5 and negative for x&gt;4
+            The absolute value of two numbers which have been divided by each other is the same as the absolute value of the two numbers which are then divided together.
             <br/><br/>
-            Now we can can draw the sign diagram to get an idea of the shape
+            The absolute value of two numbers which have been together is less or equal to the absolute value of the two numbers which are then added together.
             </Typography>
             <br/>
 
             <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcsigndiagram.jpg"
+            src="http://s0.wp.com/latex.php?latex=%5Clvert+a%2Bb+%5Crvert+%5Cleq+%5Clvert+a%5Crvert+%2B+%5Clvert+b+%5Crvert&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="h6" gutterBottom>
-            Find the local Minimum and Maximums
+            Practice Exam question (2012)
             <br/><br/>
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-            They can be found through the use of the min and max functions on your calculators or through power differentiation shown below
+            Sketch the graph of:
             <br/><br/>
             </Typography>
 
+
             <img
-            src="http://s0.wp.com/latex.php?latex=f%27%28x%29%3D-3%5Ctimes+x%5E%7B3-1%7D%2B19%5Cnewline+%3D-3x%5E%7B2%7D%2B19&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%3A%5B0%2C5%5D+%5Crightarrow+R%2C+f%28x%29%3D+-+%5Clvert+x-3+%5Crvert+%2B2&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the turning points by setting f'(x)=0 and solve for x
+            And to label the axes intercepts and endpoints of the graph.
+            <br/><br/>
+            First we can work out the endpoints of the function, which will give us the y intercept as we
+
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=-3x%5E%7B2%7D%2B19%3D0%5Cnewline+x%3D%5Cpm%5Csqrt%7B%5Cfrac%7B19%7D%7B3%7D%7D%5Cnewline%3D%5Cpm2.52&bg=ffffff&fg=000&s=0"
+            src="http://s0.wp.com/latex.php?latex=f%280%29%3D-%5Clvert+0-3+%5Crvert+%2B2+%3D+-1&bg=ffffff&fg=000&s=0"
             alt="new"
             /><br/><br/>
+
+            <img
+            src="http://s0.wp.com/latex.php?latex=f%285%29%3D-%5Clvert+5-3+%5Crvert+%2B2+%3D+0&bg=ffffff&fg=000&s=0"
+            alt="new"
+            /><br/><br/>
+
 
             <Typography variant="subtitle1" gutterBottom>
-            Find the y co-ordinates by substituting in the x values above into the original equation
+            We know that whatever we take as the absolute value ofn in this function, x minus 3, will always be negative due to the sign out the front.
+            <br/><br/>
+            Therefore the function will decrease as the value of x moves away from three, with the maximum occurring when x equals 3 and the absolute value is zero and the function equals 2. We also know that the function has a gradient of one.
+            <br/><br/>
+            The function can also be re-written like so:
             <br/><br/>
             </Typography>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%282.52%29%3D-2%5E%7B2.52%7D%2B19%5Ctimes+2.52-30%3D1.88&bg=ffffff&fg=000&s=0"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funchybridd.jpg"
             alt="new"
             /><br/><br/>
 
             <img
-            src="http://s0.wp.com/latex.php?latex=f%28-2.52%29%3D-2%5E%7B-2.52%7D%2B19%5Ctimes+-2.52-30%3D-61.88&bg=ffffff&fg=000&s=0"
-            alt="new"
-            /><br/><br/>
-
-            <Typography variant="subtitle1" gutterBottom>
-            Therefore the turning points are (2.52,1.88) and (-2.52,-61.88)
-            <br/><br/>
-            So the graph can be sketched below:
-            <br/><br/>
-            </Typography>
-
-            <img
-            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funcgencubic1-300x300.jpg"
+            src="http://wiki.engageeducation.org.au/wp-content/uploads/2015/10/funchybridc.jpg"
             alt="new"
             /><br/><br/>
 
@@ -525,8 +452,8 @@ class Cubics extends React.Component {
   }
 }
 
-Cubics.propTypes = {
+Hybrid.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Cubics);
+export default withStyles(styles)(Hybrid);

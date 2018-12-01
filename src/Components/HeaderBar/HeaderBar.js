@@ -86,6 +86,7 @@ const styles = theme => ({
 });
 
 class HeaderBar extends React.Component {
+
   render(){
     const { classes } = this.props;
     return (
@@ -115,18 +116,29 @@ class HeaderBar extends React.Component {
               </Typography>:null
             }
             <div className={classes.grow} />
+
+            {this.props.working !== undefined ?
             <div className={classes.search}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
               <InputBase
+                onChange={(event: object) =>
+                  {
+                    this.props.search(event.target.value)
+                  }
+                }
+                defaultValue= {this.props.defaultval}
+                autoFocus = {this.props.auto}
                 placeholder="Search…"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
               />
-            </div>
+            </div> : null }
+
+
           </Toolbar>
         </AppBar>
       </div>
